@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Styles.css') }}">
+
+<!--    <link rel="stylesheet" href="nexGen.css">-->
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="static/login_anim_videos/6.mp4" type="video/mp4">
+    </video>
+
+    <div class="login-container">
+        <h1 class="Nexgen">NEXGEN BUDGETS</h1>
+        <form method="POST">
+            {% if error %}
+            <div class="error-box">
+            <strong>{{ error }}</strong><br>
+            You can use a sign-in code, reset your password, or try again.
+        </div>
+            {% endif %}
+            <div class="e-mail">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" name="uEmail" required>
+            </div>
+            <div class="e-mail">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" name="uPassword" required minlength="8">
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember Me</label>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="links">
+            <a href="{{url_for('forgot_pwd')}}">Forgot Password?</a> | <a href="{{url_for('signup')}}">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>
